@@ -9,8 +9,10 @@ def hello_world():
 
 @app.route('/')
 @app.route('/{name}')
-def hola(name = 'angel'):
-    return render_template('hello.html',name = name)
+def hola():
+    name = {'nick': 'Angel'} #Añadimos un falso nick
+    return render_template('hello.html',
+                           name = name)
 
 if __name__ == '__main__':
     app.debug = True
