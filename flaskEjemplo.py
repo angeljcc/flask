@@ -10,9 +10,20 @@ def hello_world():
 @app.route('/')
 @app.route('/{name}')
 def hola():
-    name = {'nick': 'Angel'} #Añadimos un falso nick
+    name = {'nick': 'Angel'}
+    posts = [  # fake array of posts
+        {
+            'author': {'nickname': 'John'},
+            'body': 'Beautiful day in Portland!'
+        },
+        {
+            'author': {'nickname': 'Susan'},
+            'body': 'The Avengers movie was so cool!'
+        }
+    ]
     return render_template('hello.html',
-                           name = name)
+                           name = name,
+                           posts = posts)
 
 if __name__ == '__main__':
     app.debug = True
